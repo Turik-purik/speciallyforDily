@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление с Днем всех влюбленных!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ffb3b3, #ff6699);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .heart {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .options {
+            margin-top: 30px;
+        }
+        .option-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .option-button:hover {
+            background-color: #ff4d88;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 1rem;
+            color: white;
+            opacity: 0.7;
+        }
+        .contact-button {
+            padding: 15px 30px;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            display: none;
+        }
+        .contact-button:hover {
+            background-color: #ff4d88;
+        }
+        /* Mobile optimization */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .heart {
+                font-size: 60px;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+            .option-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            .contact-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Поздравляю тебя с Днем всех влюбленных!</h1>
+    <div class="heart">💖</div>
+    <p>Как ты хочешь провести этот день?</p>
+
+    <div class="options">
+        <button class="option-button" onclick="showChoice('cinema')">Пойти в кино</button>
+        <button class="option-button" onclick="showChoice('walk')">Прогуляться на свежем воздухе</button>
+        <button class="option-button" onclick="showChoice('dinner')">Пойти покушать в ресторан</button>
+        <button class="option-button" onclick="showChoice('custom')">Предложить свои идеи</button>
+    </div>
+
+    <!-- Контент для выбора, будет скрыт по умолчанию -->
+    <div id="choice-content" style="display: none;">
+        <h2>Хороший выбор!</h2>
+        <p>Ты выбрал: <span id="chosen-option"></span></p>
+        <a href="mailto:torebiqz@mail.ru" class="contact-button">Написать мне</a>
+    </div>
+
+    <div class="footer">© 2025 Ваши предложения</div>
+
+    <script>
+        function showChoice(choice) {
+            // Скрываем все кнопки выбора
+            document.querySelectorAll('.option-button').forEach(button => button.style.display = 'none');
+
+            // Показываем информацию о выбранном варианте
+            document.getElementById('choice-content').style.display = 'block';
+
+            // Устанавливаем выбранный вариант
+            document.getElementById('chosen-option').innerText = choice === 'cinema' ? 'Кино' :
+                                                                   choice === 'walk' ? 'Прогулка' :
+                                                                   choice === 'dinner' ? 'Ресторан' :
+                                                                   'Свои идеи';
+
+            // Показываем кнопку для связи
+            document.querySelector('.contact-button').style.display = 'inline-block';
+        }
+    </script>
+
+</body>
+</html>
